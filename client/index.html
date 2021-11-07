@@ -1,0 +1,106 @@
+<!doctype>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Mon magasin en ligne 100% bons plans</title>
+        <!-- Load Vue followed by Vue Router -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/http-vue-loader/src/httpVueLoader.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+          <header id="header">
+            <h1>EFREI shop!</h1>
+            <div>
+              <div class="bandeau">
+                <nav class="nav">
+                    <router-link tag="home" to='/'>Accueil</router-link>
+                    <router-link tag="catalog" to='/catalog'>Catalog</router-link>
+                    <router-link tag="panier" to='/panier'>Panier</router-link>
+                    <router-link tag="login" to='/login'>Account</router-link>
+                </nav>
+              </div>
+            </div>
+          </header>
+          <main>
+            <router-view
+              :articles="articles"
+              :catalog="catalog"
+              :panier="panier"
+              :login="login"
+              @add-article="addArticle"
+              @delete-article="deleteArticle"
+              @update-article="updateArticle"
+              @add-to-panier="addToPanier"
+              @remove-from-panier="removeFromPanier"
+            ></router-view>
+          </main>
+        </div>
+        <script src="/vue-application.js"></script>
+    </body>
+    <style>
+      *{
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          background-color: #D0EBF0;
+      }
+
+      h1{
+          text-align: center
+      }
+
+      .bandeau{
+          width: auto;
+          border: 1px solid black;
+          box-shadow: 3px 3px 3px black;
+          padding: 10px;
+          text-align: center;
+          background-color: white;
+      }
+
+      .nav{
+          background-color: white;
+      }
+
+      nav home{
+          background-color: white;
+      }
+
+      nav catalog{
+          background-color: white;
+      }
+
+      nav panier{
+          background-color: white;
+      }
+
+      nav login{
+          background-color: white;
+      }
+
+      nav home:hover{
+          background-color: #323738;
+          color: white;
+          cursor: pointer;
+      }
+
+      nav catalog:hover{
+          background-color: #323738;
+          color: white;
+          cursor: pointer;
+      }
+
+      nav panier:hover{
+          background-color: #323738;
+          color: white;
+          cursor: pointer;
+      }
+
+      nav login:hover{
+          background-color: #323738;
+          color: white;
+          cursor: pointer;
+      }
+  </style>
+</html>
